@@ -1,0 +1,39 @@
+{
+  "name": "storybook-wc-utils",
+  "version": "0.0.0",
+  "description": "Storybook Utils for Free Web Componetns (HTMLBricks)",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "./node_modules/typescript/bin/tsc",
+    "watch-ts": "./node_modules/typescript/bin/tsc -w",
+    "release:patch": "npm version patch && git push && git push --tags && npm publish",
+    "release:minor": "npm version minor && git push && git push --tags && npm publish",
+    "release:major": "npm version major && git push && git push --tags && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dottgonzo/storybook-wc-utils.git"
+  },
+  "keywords": [
+    "web",
+    "components",
+    "wc",
+    "storybook"
+  ],
+  "author": "Dario Caruso",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/dottgonzo/storybook-wc-utils/issues"
+  },
+  "homepage": "https://github.com/dottgonzo/storybook-wc-utils#readme",
+  "devDependencies": {
+    "@storybook/html": "^6.5.16",
+    "prettier": "^2.8.4",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "wc-js-utils": "^0.0.1"
+  }
+}
