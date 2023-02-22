@@ -1,5 +1,3 @@
-import type { Meta } from "@storybook/html";
-import type { ArgTypes } from "@storybook/html";
 import type { ComponentSetup } from "wc-js-utils";
 
 function capitalize(string) {
@@ -25,7 +23,7 @@ export function getStorybookMeta(
   const copy2 = Object.assign({}, storybookArgs);
 
   const assigned = Object.assign({}, copy1, copy2);
-  const meta: Meta = {
+  const meta: any = {
     title:
       componentSetup.category +
       "/" +
@@ -55,7 +53,7 @@ export function setStorybookData(
 
 export const webComponentBind = (
   args: any,
-  argTypes: ArgTypes,
+  argTypes: any,
   repoName: string,
   version: string,
   options?: { innerHTML?: string; style?: any }
