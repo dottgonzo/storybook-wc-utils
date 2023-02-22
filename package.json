@@ -1,6 +1,6 @@
 {
   "name": "storybook-wc-utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Storybook Utils for Free Web Componetns (HTMLBricks)",
   "main": "index.js",
   "scripts": {
