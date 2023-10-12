@@ -1,12 +1,16 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.argTypesExtraUtils = exports.webComponentBind = exports.setStorybookData = exports.getStorybookMeta = exports.toPascalCase = void 0;
 function capitalize(string) {
+    if (!string)
+        throw new Error("capitalize: no string provided");
     // take first character, uppercase it
     // add the rest of the string
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 function toPascalCase(str) {
+    if (!str)
+        throw new Error("toPascalCase: no string provided");
     // splitting words by dash
     var words = str.split("-");
     // use capitalize function to capitalize every word
@@ -23,7 +27,7 @@ function getStorybookMeta(storybookArgs, componentSetup) {
         title: componentSetup.category +
             "/" +
             toPascalCase(componentSetup.name.replace("hb-", "")),
-        argTypes: assigned
+        argTypes: assigned,
     };
     if (componentSetup.size) {
         meta.parameters = componentSetup.size;
@@ -35,7 +39,7 @@ function setStorybookData(componentName, example, extra) {
     if (!extra)
         extra = {};
     return Object.assign({
-        id: componentName + "-" + example.name
+        id: componentName + "-" + example.name,
     }, extra, example.data);
 }
 exports.setStorybookData = setStorybookData;
@@ -113,6 +117,6 @@ var webComponentBind = function (args, argTypes, repoName, version, options) {
 };
 exports.webComponentBind = webComponentBind;
 exports.argTypesExtraUtils = {
-    id: { control: { disable: true } }
+    id: { control: { disable: true } },
 };
 //# sourceMappingURL=index.js.map
