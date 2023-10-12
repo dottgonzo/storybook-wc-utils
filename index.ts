@@ -22,6 +22,10 @@ export function getStorybookMeta(
   storybookArgs: any,
   componentSetup: ComponentSetup
 ) {
+
+
+  if (!componentSetup?.name) throw new Error("no component name provided");
+
   const copy1 = Object.assign({}, argTypesExtraUtils);
   const copy2 = Object.assign({}, storybookArgs);
 
@@ -61,6 +65,11 @@ export const webComponentBind = (
   version: string,
   options?: { innerHTML?: string; style?: any }
 ) => {
+
+  if (!args) throw new Error("no args provided");
+  if (!argTypes) throw new Error("no argTypes provided");
+  if (!repoName) throw new Error("no repoName provided");
+
   const componentName =
     repoName.split("/").length > 1 ? repoName.split("/")[1] : repoName;
   if (!args.id) args.id = componentName.replace("hb-", "") + "key";

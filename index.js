@@ -20,6 +20,8 @@ function toPascalCase(str) {
 }
 exports.toPascalCase = toPascalCase;
 function getStorybookMeta(storybookArgs, componentSetup) {
+    if (!(componentSetup === null || componentSetup === void 0 ? void 0 : componentSetup.name))
+        throw new Error("no component name provided");
     var copy1 = Object.assign({}, exports.argTypesExtraUtils);
     var copy2 = Object.assign({}, storybookArgs);
     var assigned = Object.assign({}, copy1, copy2);
@@ -45,6 +47,12 @@ function setStorybookData(componentName, example, extra) {
 exports.setStorybookData = setStorybookData;
 var webComponentBind = function (args, argTypes, repoName, version, options) {
     var _a;
+    if (!args)
+        throw new Error("no args provided");
+    if (!argTypes)
+        throw new Error("no argTypes provided");
+    if (!repoName)
+        throw new Error("no repoName provided");
     var componentName = repoName.split("/").length > 1 ? repoName.split("/")[1] : repoName;
     if (!args.id)
         args.id = componentName.replace("hb-", "") + "key";
