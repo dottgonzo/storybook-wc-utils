@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.argTypesExtraUtils = exports.webComponentBind = exports.setStorybookData = exports.getStorybookMeta = void 0;
-var utils_1 = require("utils");
+var utils_1 = require("./utils");
 function getStorybookMeta(storybookArgs, componentSetup) {
     if (!(componentSetup === null || componentSetup === void 0 ? void 0 : componentSetup.name))
         throw new Error("no component name provided");

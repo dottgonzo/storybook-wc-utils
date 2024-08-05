@@ -1,4 +1,4 @@
-import { toPascalCase } from "utils";
+import { toPascalCase } from "./utils";
 import type { ComponentSetup } from "wc-js-utils";
 
 export function getStorybookMeta(
