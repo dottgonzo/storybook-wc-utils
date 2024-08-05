@@ -37,8 +37,9 @@ var webComponentBind = function (args, argTypes, repoName, version, options) {
     if (!repoName)
         throw new Error("no repoName provided");
     var componentName = repoName.split("/").length > 1 ? repoName.split("/")[1] : repoName;
+    var hprefix = componentName.split("-")[0];
     if (!args.id)
-        args.id = componentName.replace("hb-", "") + "key";
+        args.id = componentName.replace(hprefix + "-", "") + "key";
     var attributes = Object.keys(argTypes).filter(function (f) { return argTypes[f].control && !argTypes[f].control.disable; });
     var actions = Object.keys(argTypes).filter(function (f) { return argTypes[f].action; });
     if (!document.getElementById(componentName + "-script")) {
@@ -46,7 +47,7 @@ var webComponentBind = function (args, argTypes, repoName, version, options) {
         script.id = componentName + "-script";
         script.src = !window.location.href.includes("localhost")
             ? "https://cdn.jsdelivr.net/npm/".concat(repoName, "@").concat(version, "/release/release.js")
-            : "http://localhost:6006/".concat(componentName.replace("hb-", ""), "/dist/release.js");
+            : "http://localhost:6006/".concat(componentName.replace(hprefix + "-", ""), "/dist/release.js");
         document.body.appendChild(script);
     }
     var c;
